@@ -13,55 +13,69 @@
 </head>
 <body>
 
-<div class="container">
-    <table class="table table-bordered">
+<div class="container table-responsive">
+    <table class="table table-bordered text-center align-middle">
         <thead>
         <tr>
+            <th>#</th>
             <th>Name</th>
-            <th>Rolls</th>
+            <th colspan="2">Rolls</th>
             <th>Bonus</th>
+            <th>Type</th>
             <th>Total</th>
         </tr>
         </thead>
         <tbody>
         <tr>
+            <td class="rowNum"></td>
             <td>Shiko</td>
-            <td>16 | {19}</td>
+            <td>16</td>
+            <td class="table-active">19</td>
             <td>+4</td>
             <td>Advantage</td>
             <td>20</td>
         </tr>
         <tr class="table-success">
+            <td class="rowNum"></td>
             <td>Niakinta Meremar</td>
-            <td>20</td>
+            <td class="table-active">20</td>
+            <td>13</td>
             <td>+4</td>
             <td>Advantage</td>
             <td>22</td>
         </tr>
         <tr>
+            <td class="rowNum"></td>
             <td>One-Shot Winston</td>
-            <td>3 | {20}</td>
+            <td>3</td>
+            <td>20</td>
             <td>+3</td>
             <td>Advantage</td>
             <td>20</td>
         </tr>
         <tr>
+            <td class="rowNum"></td>
             <td>Fish</td>
             <td>6</td>
+            <td></td>
             <td>+1</td>
             <td>Normal</td>
             <td>7</td>
         </tr>
         <tr class="table-danger">
+            <td class="rowNum"></td>
             <td>EmmE</td>
             <td>1</td>
+            <td></td>
             <td>+5</td>
             <td>Normal</td>
             <td>6</td>
         </tr>
         <tr>
+            <td class="rowNum"></td>
             <td>Ord Ravenbraid</td>
             <td>16</td>
+            <td></td>
             <td>-1</td>
             <td>Normal</td>
             <td>20</td>
@@ -84,6 +98,7 @@
         integrity="sha256-60hpI7ZQ4NYVaOpOvYjC/LsWJccluZIM9b0q8f7/iVk=" crossorigin="anonymous"></script>
 
 <script src="js/roll.js"></script>
+<script src="js/row.js"></script>
 
 </body>
 </html>
