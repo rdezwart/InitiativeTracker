@@ -8,14 +8,15 @@ function getRandomIntInclusive(min, max) {
 function roll(dice = "1d20", bonus = 0) {
     let arr = dice.split("d", 2);
 
+    // Turn "d20" into "1d20"
     if (arr[0] === "") {
         arr[0] = "1";
     }
 
+    // Convert strings to ints
     for (let i = 0; i < arr.length; i++) {
         arr[i] = parseInt(arr[i]);
     }
-    // console.log(arr);
 
     let numDice = arr[0];
     let diceVal = arr[1];
@@ -23,7 +24,6 @@ function roll(dice = "1d20", bonus = 0) {
 
     for (let i = 0; i < numDice; i++) {
         let roll = getRandomIntInclusive(1, diceVal);
-        console.log(roll);
         sum += roll;
     }
 
