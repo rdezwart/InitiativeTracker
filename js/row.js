@@ -41,10 +41,22 @@ function calcRowActive() {
     });
 }
 
+function calcRowColours() {
+    // Loop through all active rolls and set row colour if nat 1 or nat 20
+    $(".table-active").each(function() {
+        if ($(this).html() === "20") {
+            $(this).parent().addClass("table-success");
+        }
+        if ($(this).html() === "1") {
+            $(this).parent().addClass("table-danger");
+        }
+    });
+}
 
 function refreshTable() {
     calcRowNums();
     calcRowActive();
+    calcRowColours();
 }
 
 $(function () {
