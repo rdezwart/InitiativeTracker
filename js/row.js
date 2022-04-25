@@ -18,6 +18,9 @@ function calcRowActive() {
         let dice2 = children.eq(3);
         let rollType = children.eq(5);
 
+        dice1.removeClass("table-active");
+        dice2.removeClass("table-active");
+
         // Highlight which roll was used
         switch (rollType.html()) {
             case "Advantage":
@@ -44,6 +47,8 @@ function calcRowActive() {
 function calcRowColours() {
     // Loop through all active rolls and set row colour if nat 1 or nat 20
     $(".table-active").each(function() {
+        $(this).parent().removeClass("table-success table-danger");
+
         if ($(this).html() === "20") {
             $(this).parent().addClass("table-success");
         }
