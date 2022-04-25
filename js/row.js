@@ -58,9 +58,53 @@ function calcRowColours() {
     });
 }
 
+function rollRows() {
+    $("table tbody tr").each(function () {
+        let curRow = $(this);
+        let children = curRow.children();
+
+        let dice1 = children.eq(2);
+        let dice2 = children.eq(3);
+        let rollType = children.eq(5);
+
+        let res1 = roll();
+        let res2 = roll();
+
+        dice1.html(String(res1));
+
+        if (rollType.html() === "Advantage") {
+            dice2.html(String(res2));
+        } else if (rollType.html() === "Disadvantage") {
+            dice2.html(String(roll()));
+        }
+    });
+}
+
+function updateTotals() {
+    $("table tbody tr").each(function() {
+        let curRow = $(this);
+        let children = curRow.children();
+
+        let active = curRow.children(".table-active");
+
+        let bonus = children.eq(4);
+        let rollType = children.eq(5);
+        let result = children.eq(6);
+
+        if (rollType.html() === "Advantage") {
+            result.html(parseInt(active.html()) + parseInt(bonus.html()));
+        } else if (rollType.html() === "Disadvantage") {
+            result.html(parseInt(active.html()) + parseInt(bonus.html()));
+        } else {
+            result.html(parseInt(active.html()) + parseInt(bonus.html()));
+        }
+    });
+}
+
 function refreshTable() {
     calcRowNums();
     calcRowActive();
+    updateTotals();
     calcRowColours();
 }
 
