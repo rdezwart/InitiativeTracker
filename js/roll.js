@@ -5,15 +5,14 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function roll(dice = "1d20", bonus = 0) {
+// Roll RPG dice based on input string
+function roll(dice = "1d20") {
     let arr = dice.split("d", 2);
 
-    // Turn "d20" into "1d20"
     if (arr[0] === "") {
         arr[0] = "1";
     }
 
-    // Convert strings to ints
     for (let i = 0; i < arr.length; i++) {
         arr[i] = parseInt(arr[i]);
     }
@@ -27,17 +26,10 @@ function roll(dice = "1d20", bonus = 0) {
         sum += roll;
     }
 
-    return sum + bonus;
+    return sum;
 }
 
+// Driver
 $(function () {
-    // for (let i = 0; i < 10; i++) {
-    //     console.log(roll("1d20"));
-    // }
-
-    // console.log(roll("d20"));
-
-    // console.log(roll("3d6"));
-
     console.log(roll("1d20", 4));
 });

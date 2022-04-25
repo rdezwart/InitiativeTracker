@@ -1,19 +1,16 @@
+// Loop through each row in table body and number it based on index
 function calcRowNums() {
-    // Loop through each row in table body
     $("table tbody tr").each(function (i) {
-        // Fill in row number
         $(this).children().eq(0).html(i);
     })
 }
 
+// Loop through each row in table body and highlight the active die based on roll type
 function calcRowActive() {
-    // Loop through each row in table body
     $("table tbody tr").each(function () {
-        // Get all columns from this row
         let curRow = $(this);
         let children = curRow.children();
 
-        // Get dice results and roll type
         let dice1 = children.eq(2);
         let dice2 = children.eq(3);
         let rollType = children.eq(5);
@@ -21,7 +18,6 @@ function calcRowActive() {
         dice1.removeClass("table-active");
         dice2.removeClass("table-active");
 
-        // Highlight which roll was used
         switch (rollType.html()) {
             case "Advantage":
                 if (parseInt(dice1.html()) >= parseInt(dice2.html()))
@@ -44,9 +40,9 @@ function calcRowActive() {
     });
 }
 
+// Loop through all active dice and set the row colour to red or green, based on nat 1 or nat 20
 function calcRowColours() {
-    // Loop through all active rolls and set row colour if nat 1 or nat 20
-    $(".table-active").each(function() {
+    $(".table-active").each(function () {
         $(this).parent().removeClass("table-success table-danger");
 
         if ($(this).html() === "20") {
@@ -58,6 +54,7 @@ function calcRowColours() {
     });
 }
 
+// Loop through each row in table body and roll corresponding D20s for each, using roll type
 function rollRows() {
     $("table tbody tr").each(function () {
         let curRow = $(this);
@@ -80,8 +77,9 @@ function rollRows() {
     });
 }
 
+// Loop through each row in table body and calculate active roll + bonus, then place result in last column
 function updateTotals() {
-    $("table tbody tr").each(function() {
+    $("table tbody tr").each(function () {
         let curRow = $(this);
         let children = curRow.children();
 
@@ -101,6 +99,7 @@ function updateTotals() {
     });
 }
 
+// Use after modifying table data, recalculates everything
 function refreshTable() {
     calcRowNums();
     calcRowActive();
@@ -108,6 +107,7 @@ function refreshTable() {
     calcRowColours();
 }
 
+// Driver
 $(function () {
     refreshTable();
 });
