@@ -103,8 +103,8 @@ function sortTable() {
     let rows = $("table tbody tr");
 
     rows.sort(function(a, b) {
-        let aRow = $(a).children("td");
-        let bRow = $(b).children("td");
+        let aRow = $(a).children();
+        let bRow = $(b).children();
 
         let aTotal = aRow.eq(6);
         let bTotal = bRow.eq(6);
