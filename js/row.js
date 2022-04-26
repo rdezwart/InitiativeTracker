@@ -99,6 +99,73 @@ function updateTotals() {
     });
 }
 
+function sortTable() {
+    let rows = $("table tbody tr");
+
+    rows.sort(function(a, b) {
+        let aRow = $(a).children("td");
+        let bRow = $(b).children("td");
+
+        let aTotal = aRow.eq(6);
+        let bTotal = bRow.eq(6);
+
+        let aTotalInt = parseInt(aTotal.text());
+        let bTotalInt = parseInt(bTotal.text());
+
+        if (aTotalInt < bTotalInt) {
+            return 1;
+        }
+        if (aTotalInt > bTotalInt) {
+            return -1;
+        }
+        if (aTotalInt === bTotalInt) {
+            let aBonusInt = parseInt(aRow.eq(4).text());
+            let bBonusInt = parseInt(bRow.eq(4).text());
+
+            if (aBonusInt < bBonusInt) {
+                return 1;
+            }
+            if (aBonusInt > bBonusInt) {
+                return -1;
+            }
+            if (aBonusInt === bBonusInt) {
+                updateTotals();
+
+                let aRoll = roll();
+                let bRoll = roll();
+
+                // console.log("Tiebreaker! a: " + aRoll + "  |  b: " + bRoll);
+                aTotal.html(aTotal.html() + "." + aRoll);
+                bTotal.html(bTotal.html() + "." + bRoll);
+
+                while (aRoll === bRoll) {
+                    aRoll = roll();
+                    bRoll = roll();
+
+                    // console.log("Rerolling! a: " + aRoll + "  |  b: " + bRoll);
+                    aTotal.html(aTotal.html() + "." + aRoll);
+                    bTotal.html(bTotal.html() + "." + bRoll);
+                }
+
+                aTotal.addClass("table-active");
+                bTotal.addClass("table-active");
+
+                if (aRoll < bRoll) {
+                    return 1;
+                }
+                if (aRoll > bRoll) {
+                    return -1;
+                }
+            }
+        }
+        return 0;
+    });
+
+    $.each(rows, function(index, row) {
+        $("table").children("tbody").append(row);
+    })
+}
+
 // Use after modifying table data, recalculates everything
 function refreshTable() {
     calcRowNums();
