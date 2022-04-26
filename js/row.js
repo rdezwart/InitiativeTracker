@@ -43,7 +43,7 @@ function calcRowActive() {
 // Loop through all active dice and set the row colour to red or green, based on nat 1 or nat 20
 function calcRowColours() {
     $(".table-active").each(function () {
-        $(this).parent().removeClass("table-success table-danger");
+        $(this).parent().removeClass("table-success table-danger").removeAttr("class");
 
         if ($(this).html() === "20") {
             $(this).parent().addClass("table-success");
