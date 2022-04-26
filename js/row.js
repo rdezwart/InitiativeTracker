@@ -103,8 +103,8 @@ function updateTotals() {
 function refreshTable() {
     calcRowNums();
     calcRowActive();
-    updateTotals();
     calcRowColours();
+    updateTotals();
 }
 
 // Driver
