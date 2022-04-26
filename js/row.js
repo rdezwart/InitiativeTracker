@@ -109,8 +109,8 @@ function sortTable() {
         let aTotal = aRow.eq(6);
         let bTotal = bRow.eq(6);
 
-        let aTotalInt = parseInt(aTotal.text());
-        let bTotalInt = parseInt(bTotal.text());
+        let aTotalInt = parseInt(aTotal.html());
+        let bTotalInt = parseInt(bTotal.html());
 
         if (aTotalInt < bTotalInt) {
             return 1;
@@ -119,8 +119,8 @@ function sortTable() {
             return -1;
         }
         if (aTotalInt === bTotalInt) {
-            let aBonusInt = parseInt(aRow.eq(4).text());
-            let bBonusInt = parseInt(bRow.eq(4).text());
+            let aBonusInt = parseInt(aRow.eq(4).html());
+            let bBonusInt = parseInt(bRow.eq(4).html());
 
             if (aBonusInt < bBonusInt) {
                 return 1;
