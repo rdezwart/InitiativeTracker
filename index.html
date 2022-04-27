@@ -37,6 +37,19 @@
                 </div>
             </form>
         </div>
+
+        <div class="col-3 g-0">
+            <form id="deleteForm" class="p-3 border ms-3 row g-3">
+                <div class="col-4">
+                    <label for="deleteIndex" class="form-label">Index</label>
+                    <input id="deleteIndex" type="number" class="form-control" name="index" value="" required
+                           min="0" max="">
+                </div>
+                <div class="col-8 mt-auto d-grid">
+                    <button id="deleteButton" type="submit" class="btn btn-danger">Delete Row</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <div class="row mb-3">
