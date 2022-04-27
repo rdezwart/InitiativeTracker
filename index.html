@@ -13,11 +13,6 @@
 <body>
 
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <button type="button" id="rollButton" class="btn btn-primary">Roll Initiative</button>
-            <button type="button" id="sortButton" class="btn btn-secondary">Sort Table</button>
-            <button type="button" id="bothButton" class="btn btn-success">Roll &amp; Sort</button>
     <div class="row mb-3">
         <div class="col-4 g-0 border">
             <form id="charForm" class="p-3 row g-3">
@@ -43,6 +38,17 @@
             </form>
         </div>
     </div>
+
+    <div class="row mb-3">
+        <div class="col-4 g-0 border">
+            <div class="px-4 py-3 row g-3">
+                <button type="button" id="rollButton" class="col me-3 btn btn-primary">Roll Initiative</button>
+                <button type="button" id="sortButton" class="col btn btn-secondary">Sort Table</button>
+                <button type="button" id="bothButton" class="col ms-3 btn btn-success">Roll &amp; Sort</button>
+            </div>
+        </div>
+    </div>
+
     <div class="row table-responsive">
         <table class="col table table-bordered text-center align-middle">
             <thead class="table-dark">
