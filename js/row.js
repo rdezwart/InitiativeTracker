@@ -14,9 +14,11 @@ function calcRowActive() {
         let dice1 = children.eq(2);
         let dice2 = children.eq(3);
         let rollType = children.eq(5);
+        let total = children.eq(6);
 
-        dice1.removeClass("table-active");
-        dice2.removeClass("table-active");
+        dice1.removeClass("table-active").removeAttr("class");
+        dice2.removeClass("table-active").removeAttr("class");
+        total.removeClass("table-active").removeAttr("class");
 
         switch (rollType.html()) {
             case "Advantage":
