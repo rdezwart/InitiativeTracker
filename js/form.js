@@ -16,3 +16,14 @@ $("#bothButton").click(function() {
     sortTable();
     calcRowNums();
 });
+
+$(function() {
+    $("#charForm").submit(function(e) {
+        e.preventDefault();
+        let data = $(this).serializeArray().reduce(function(obj, item) {
+            obj[item.name] = item.value;
+            return obj;
+        }, {});
+        console.log(data);
+    });
+})
