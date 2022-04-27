@@ -2,10 +2,10 @@
 $("#rollButton").click(function () {
     rollRows();
     refreshTable();
+    updateTotals();
 });
 
 $("#sortButton").click(function () {
-    refreshTable();
     sortTable();
     calcRowNums();
 });
@@ -13,6 +13,7 @@ $("#sortButton").click(function () {
 $("#bothButton").click(function () {
     rollRows();
     refreshTable();
+    updateTotals();
     sortTable();
     calcRowNums();
 });

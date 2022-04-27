@@ -39,6 +39,13 @@ function calcRowActive() {
                 dice1.addClass("table-active");
                 break;
         }
+
+        if (dice1.html() === "") {
+            dice1.removeClass("table-active").removeAttr("class");
+        }
+        if (dice2.html() === "") {
+            dice2.removeClass("table-active").removeAttr("class");
+        }
     });
 }
 
@@ -102,9 +109,9 @@ function updateTotals() {
 }
 
 function sortTable() {
-    let rows = $("table tbody tr");
+    let rows = $("#charTable tbody tr");
 
-    rows.sort(function(a, b) {
+    rows.sort(function (a, b) {
         let aRow = $(a).children();
         let bRow = $(b).children();
 
@@ -114,56 +121,56 @@ function sortTable() {
         let aTotalInt = parseInt(aTotal.html());
         let bTotalInt = parseInt(bTotal.html());
 
-        if (aTotalInt < bTotalInt) {
-            return 1;
-        }
-        if (aTotalInt > bTotalInt) {
-            return -1;
-        }
-        if (aTotalInt === bTotalInt) {
+        let aCompare = aTotalInt;
+        let bCompare = bTotalInt;
+
+        if (aCompare === bCompare) {
             let aBonusInt = parseInt(aRow.eq(4).html());
             let bBonusInt = parseInt(bRow.eq(4).html());
 
-            if (aBonusInt < bBonusInt) {
-                return 1;
-            }
-            if (aBonusInt > bBonusInt) {
-                return -1;
-            }
-            if (aBonusInt === bBonusInt) {
-                updateTotals();
+            aCompare = aTotalInt + aBonusInt;
+            bCompare = bTotalInt + bBonusInt;
 
+            if (aCompare === bCompare) {
                 let aRoll = roll();
                 let bRoll = roll();
 
-                // console.log("Tiebreaker! a: " + aRoll + "  |  b: " + bRoll);
-                aTotal.html(aTotal.html() + "." + aRoll);
-                bTotal.html(bTotal.html() + "." + bRoll);
+                let aTotalSplit = aTotal.html().split(".", 2);
+                let bTotalSplit = bTotal.html().split(".", 2);
+
+                if (aTotalSplit.length === 2) {
+                    aRoll = parseInt(aTotalSplit[1]);
+                }
+                if (bTotalSplit.length === 2) {
+                    bRoll = parseInt(bTotalSplit[1]);
+                }
 
                 while (aRoll === bRoll) {
                     aRoll = roll();
                     bRoll = roll();
-
-                    // console.log("Rerolling! a: " + aRoll + "  |  b: " + bRoll);
-                    aTotal.html(aTotal.html() + "." + aRoll);
-                    bTotal.html(bTotal.html() + "." + bRoll);
                 }
+
+                aCompare = aTotalInt + aBonusInt + aRoll;
+                bCompare = bTotalInt + bBonusInt + bRoll;
 
                 aTotal.addClass("table-active");
-                bTotal.addClass("table-active");
+                aTotal.html(aTotalInt + "." + aRoll);
 
-                if (aRoll < bRoll) {
-                    return 1;
-                }
-                if (aRoll > bRoll) {
-                    return -1;
-                }
+                bTotal.addClass("table-active");
+                bTotal.html(bTotalInt + "." + bRoll);
             }
         }
-        return 0;
+
+        if (aCompare < bCompare) {
+            return 1;
+        }
+        if (aCompare > bCompare) {
+            return -1;
+        }
+        return 0; // shouldn't ever hit this
     });
 
-    $.each(rows, function(index, row) {
+    $.each(rows, function (index, row) {
         $("table").children("tbody").append(row);
     })
 }
@@ -173,10 +180,10 @@ function refreshTable() {
     calcRowNums();
     calcRowActive();
     calcRowColours();
-    updateTotals();
 }
 
 // Driver
 $(function () {
     refreshTable();
+    updateTotals();
 });
