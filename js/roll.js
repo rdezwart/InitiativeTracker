@@ -28,8 +28,3 @@ function roll(dice = "1d20") {
 
     return sum;
 }
-
-// Driver
-$(function () {
-    console.log(roll("1d20", 4));
-});

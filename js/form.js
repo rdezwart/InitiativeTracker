@@ -81,7 +81,6 @@ $(function () {
 
         refreshTable();
         updateMaxIndex();
-        // console.log(data);
     });
 
     $("#deleteForm").submit(function (e) {
@@ -90,7 +89,6 @@ $(function () {
             obj[item.name] = item.value;
             return obj;
         }, {});
-        // console.log(data);
 
         $("#charTable tbody tr").eq(data["index"]).remove();
         refreshTable();
