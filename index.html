@@ -18,6 +18,29 @@
             <button type="button" id="rollButton" class="btn btn-primary">Roll Initiative</button>
             <button type="button" id="sortButton" class="btn btn-secondary">Sort Table</button>
             <button type="button" id="bothButton" class="btn btn-success">Roll &amp; Sort</button>
+    <div class="row mb-3">
+        <div class="col-4 g-0 border">
+            <form id="charForm" class="p-3 row g-3">
+                <div class="col-12">
+                    <label for="name" class="form-label">Name</label>
+                    <input id="name" type="text" class="form-control" name="name" required>
+                </div>
+                <div class="col-3">
+                    <label for="bonusValue" class="form-label">Bonus</label>
+                    <input id="bonusValue" type="number" class="form-control" name="bonus" value="0" pattern="\d*">
+                </div>
+                <div class="col-5">
+                    <label for="rollType" class="form-label">Type</label>
+                    <select id="rollType" class="form-select" name="type">
+                        <option selected>Normal</option>
+                        <option>Advantage</option>
+                        <option>Disadvantage</option>
+                    </select>
+                </div>
+                <div class="col-4 mt-auto d-grid">
+                    <button type="submit" class="btn btn-primary">Add Row</button>
+                </div>
+            </form>
         </div>
     </div>
     <div class="row table-responsive">
