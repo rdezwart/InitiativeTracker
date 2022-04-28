@@ -55,11 +55,8 @@ $(function () {
 
     // When clicked, trigger both other buttons
     $("#bothButton").click(function () {
-        rollRows();
-        refreshTable();
-        updateTotals();
-        sortTable();
-        calcRowNums();
+        $("#rollButton").trigger("click");
+        $("#sortButton").trigger("click");
     });
 
     // ---- Form Listeners ---- //
