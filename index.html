@@ -23,18 +23,19 @@
 </nav>
 
 <div class="container">
-    <div class="row mb-3">
-        <div class="col-4 g-0">
-            <form id="charForm" class="row border px-2 pb-3 m-0 g-3">
+    <div class="row">
+        <div class="card col-12 col-lg-6 mb-3">
+            <h5 class="card-header row">Add Row</h5>
+            <form id="charForm" class="card-body row pt-2 pb-3 px-1 gx-3 gy-2">
                 <div class="col-12">
                     <label for="name" class="form-label">Name</label>
                     <input id="name" type="text" class="form-control" name="name" required>
                 </div>
-                <div class="col-3">
+                <div class="col-12 col-sm-3">
                     <label for="bonusValue" class="form-label">Bonus</label>
                     <input id="bonusValue" type="number" class="form-control" name="bonus" value="0">
                 </div>
-                <div class="col-5">
+                <div class="col-12 col-sm-6">
                     <label for="rollType" class="form-label">Type</label>
                     <select id="rollType" class="form-select" name="type">
                         <option selected>Normal</option>
@@ -42,14 +43,15 @@
                         <option>Disadvantage</option>
                     </select>
                 </div>
-                <div class="col-4 mt-auto d-grid">
+                <div class="col-12 col-sm-3 mt-3 mt-sm-auto d-grid">
                     <button type="submit" class="btn btn-primary">Add Row</button>
                 </div>
             </form>
         </div>
 
-        <div class="col-3 g-0">
-            <form id="deleteForm" class="row border px-2 pb-3 m-0 g-3 ms-3">
+        <div class="card col-12 col-lg-5 offset-lg-1 mb-3 mb-lg-auto">
+            <h5 class="row card-header">Delete Row</h5>
+            <form id="deleteForm" class="card-body row pt-2 pb-3 px-1 gx-3">
                 <div class="col-4">
                     <label for="deleteIndex" class="form-label">Index</label>
                     <input id="deleteIndex" type="number" class="form-control" name="index" min="0" required>
@@ -62,18 +64,19 @@
         </div>
     </div>
 
-    <div class="row mb-3">
-        <div class="col-4 g-0 border">
-            <div class="px-4 py-3 row g-3">
-                <button type="button" id="rollButton" class="col me-3 btn btn-primary">Roll Initiative</button>
-                <button type="button" id="sortButton" class="col btn btn-secondary">Sort Table</button>
-                <button type="button" id="bothButton" class="col ms-3 btn btn-success">Roll &amp; Sort</button>
+    <div class="row">
+        <div class="card col-12 col-lg-6 mb-3">
+            <h5 class="card-header row">Initiative</h5>
+            <div class="card-body btn-group row btn-toolbar py-3 px-3">
+                <button type="button" id="rollButton" class="btn btn-primary col-4">Roll</button>
+                <button type="button" id="sortButton" class="btn btn-secondary col-4">Sort</button>
+                <button type="button" id="bothButton" class="btn btn-success col-4">Both</button>
             </div>
         </div>
     </div>
 
     <div class="row table-responsive">
-        <table id="charTable" class="col table table-bordered text-center align-middle">
+        <table id="charTable" class="col table table-bordered text-center">
             <thead class="table-dark">
             <tr>
                 <th scope="col">#</th>
