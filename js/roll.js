@@ -5,7 +5,7 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-// Roll RPG dice based on input string
+// Rolls RPG dice based on input string
 function roll(dice = "1d20") {
     let arr = dice.split("d", 2);
 
