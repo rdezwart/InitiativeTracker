@@ -52,8 +52,8 @@
             <form id="deleteForm" class="row border px-2 pb-3 m-0 g-3 ms-3">
                 <div class="col-4">
                     <label for="deleteIndex" class="form-label">Index</label>
-                    <input id="deleteIndex" type="number" class="form-control" name="index" value="" required
-                           min="0" max="">
+                    <input id="deleteIndex" type="number" class="form-control" name="index" min="0" required>
+                    <!-- 'max' and 'value' are filled on load with JS -->
                 </div>
                 <div class="col-8 mt-auto d-grid">
                     <button id="deleteButton" type="submit" class="btn btn-danger">Delete Row</button>
