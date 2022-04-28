@@ -1,3 +1,4 @@
+// Updates the deleteRow form with the appropriate values
 function updateMaxIndex() {
     let numRows = $("#charTable tbody tr").length;
     let deleteIndex = $("#deleteIndex");
@@ -32,24 +33,27 @@ function updateMaxIndex() {
 
 // Driver
 $(function () {
+    // Update deleteRow form maximum value to be in range
     updateMaxIndex();
-
     let deleteIndex = $("#deleteIndex");
     deleteIndex.val(deleteIndex.attr("max"));
 
-    // Button listeners
+    // ---- Button Listeners ---- //
 
+    // When clicked, make rolls for all table rows, update visuals, then calculate totals
     $("#rollButton").click(function () {
         rollRows();
         refreshTable();
         updateTotals();
     });
 
+    // When clicked, sort the table and update indexes
     $("#sortButton").click(function () {
         sortTable();
         calcRowNums();
     });
 
+    // When clicked, trigger both other buttons
     $("#bothButton").click(function () {
         rollRows();
         refreshTable();
@@ -58,10 +62,12 @@ $(function () {
         calcRowNums();
     });
 
-    // Form listeners
+    // ---- Form Listeners ---- //
 
+    // When submitted, stop submission, then add new table row with form data
     $("#charForm").submit(function (e) {
         e.preventDefault();
+        // https://stackoverflow.com/a/24012884
         let data = $(this).serializeArray().reduce(function (obj, item) {
             obj[item.name] = item.value;
             return obj;
@@ -83,13 +89,16 @@ $(function () {
         updateMaxIndex();
     });
 
+    // When submitted, stop submission, then remove specified row from table
     $("#deleteForm").submit(function (e) {
         e.preventDefault();
+        // https://stackoverflow.com/a/24012884
         let data = $(this).serializeArray().reduce(function (obj, item) {
             obj[item.name] = item.value;
             return obj;
         }, {});
 
+        // Index has already been verified as within range
         $("#charTable tbody tr").eq(data["index"]).remove();
         refreshTable();
         updateMaxIndex();
