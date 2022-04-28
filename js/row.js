@@ -108,6 +108,7 @@ function updateTotals() {
     });
 }
 
+// Sort table by total roll, ties broken by bonus, then by extra D20 roll if necessary
 function sortTable() {
     let rows = $("#charTable tbody tr");
 
