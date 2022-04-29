@@ -18,6 +18,11 @@ you what's possible.
 Ties are broken first by checking numeric initiative bonuses, and then if anyone is *still* tied, a D20 is rolled to
 determine the final order. These extra D20s are rerolled until two different numbers are achieved.
 
-## Who's Mouki?
+## Got feedback?
+
+Feel free to leave an issue report if you find something I missed, or if you've got random questions. I mostly made this
+for practice and maybe as a portfolio piece.
+
+### Who's Mouki? Do you know him?
 
 ![Well, of course I know him. He's me.](https://media.giphy.com/media/l3fZFvp94ljepXoPe/giphy.gif)
