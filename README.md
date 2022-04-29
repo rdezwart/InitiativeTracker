@@ -24,6 +24,11 @@ determine the final order. These extra D20s are rerolled until two different num
 Feel free to leave an issue report if you find something I missed, or if you've got random questions. I mostly made this
 for practice and maybe as a portfolio piece.
 
+### Any bugs you're aware of?
+
+- The sorting breaks if you get too many ties (like, roughly 5+), due to limitations with my implementation of JQuery's
+  sorting algorithm. The odds of this happening are so slim, however, that I don't think it's an issue at the moment.
+
 ### Who's Mouki? Do you know him?
 
 ![Well, of course I know him. He's me.](https://media.giphy.com/media/l3fZFvp94ljepXoPe/giphy.gif)
