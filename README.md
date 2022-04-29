@@ -4,7 +4,7 @@
 
 This is a simple combat helper for Dungeons & Dragons, designed to roll and sort initiative rolls for your party with
 the single click of a button. You can find a live version through GitHub
-pages [here](https://rdezwart.github.io/InitiativeTracker/).
+Pages [here](https://rdezwart.github.io/InitiativeTracker/).
 
 ## How do I use it?
 
