@@ -20,4 +20,4 @@ determine the final order. These extra D20s are rerolled until two different num
 
 ## Who's Mouki?
 
-![Well, of course I know him. He's me.](https://tenor.com/bBXzk.gif)
+![Well, of course I know him. He's me.](https://media.giphy.com/media/l3fZFvp94ljepXoPe/giphy.gif)
