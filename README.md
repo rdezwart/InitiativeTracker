@@ -1,5 +1,23 @@
-# InitiativeTracker
+# Mouki's Initiative Tracker
 
-Combat helper for Dungeons & Dragons. [Live version][1].
+## What is this?
 
-[1]: https://rdezwart.github.io/InitiativeTracker/
+This is a simple combat helper for Dungeons & Dragons, designed to roll and sort initiative rolls for your party with
+the single click of a button. You can find a live version [here](https://rdezwart.github.io/InitiativeTracker/).
+
+## How do I use it?
+
+It's as easy as adding your character's name and bonuses to initiative in a form and hitting a nice green button!
+Removing someone is done by selecting their row and hitting another, redder button.
+
+The table comes pre-filled with a selection of characters with a mix of bonuses and hindrances to their rolls to show
+you what's possible.
+
+## What if characters tie?
+
+Ties are broken first by checking numeric initiative bonuses, and then if anyone is *still* tied, a D20 is rolled to
+determine the final order. These extra D20s are rerolled until two different numbers are achieved.
+
+## Who's Mouki?
+
+![Well, of course I know him. He's me.](https://tenor.com/bBXzk.gif)
